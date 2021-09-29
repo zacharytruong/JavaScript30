@@ -70,10 +70,10 @@
   }
 
   const keys = document.querySelectorAll('.key');
-  keys.forEach(removePlayingClass);
-  function removePlayingClass(key){
-    key.addEventListener('transitionend', removeTransition)
-    function removeTransition(e){
+  keys.forEach(removeTransitioned);
+  function removeTransitioned(key){
+    key.addEventListener('transitionend', removeClass);
+    function removeClass(e){
       if (e.propertyName !== 'transform') return;
       this.classList.remove('playing');
     }

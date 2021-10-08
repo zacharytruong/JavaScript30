@@ -6,9 +6,12 @@
 </head>
 <body class="bod">
 
-  <div class="one">
-    <div class="two">
-      <div class="three">
+  <div data="one" class="one">
+    One
+    <div data="two" class="two">
+      Two
+      <div data="three" class="three">
+        Three
       </div>
     </div>
   </div>
@@ -42,6 +45,15 @@
 
 <button></button>
 <script>
+  const divs = document.querySelectorAll('div');
+  divs.forEach(div => div.addEventListener('click', logText, {
+    capture: false,
+    
+  }));
+  function logText(e){
+    console.log(this.classList.value);
+    e.stopPropagation();
+  }
 
 </script>
 </body>
